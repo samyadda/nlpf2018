@@ -43,13 +43,17 @@ class AddaPlayer extends Player
 
         //aliance
 
- 
+
         $opponnent = $this->result->getStatsFor($this->opponentSide)['name'];
-        if ($opponnent == 'Garnaoui' or $opponnent == 'Diomande' or $opponnent == 'Fauchille')
+        if ($opponnent == 'Garnaoui' )
         {
             if ($this->result->getNbRound() % 2 == 0)
                 return parent::scissorsChoice();
             return parent::rockChoice();
+        }
+        if ($opponnent == 'Diomande')
+        {
+            return parent::paperChoice();
         }
 
 
