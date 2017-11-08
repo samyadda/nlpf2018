@@ -56,7 +56,7 @@ class AddaPlayer extends Player
         if ($this->result->getNbRound() == 0) {
             return parent::scissorsChoice();
         }
-        if ($this->result->getLastScoreFor($this->mySide)<=$this->result->getLastScoreFor($this->opponentSide) )
+        if ($this->result->getLastScoreFor($this->mySide)>$this->result->getLastScoreFor($this->opponentSide) )
         {
                 if ($this->result->getLastChoiceFor($this->opponentSide) == 'rock' )
                 {
