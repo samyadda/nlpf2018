@@ -41,12 +41,28 @@ class AddaPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
+        //aliance
+
+        if ($this->result->getStatsFor($this->opponentSide)['name'] == 'Garnaoui')
+        {
+            return parent::paperChoice();
+        }
+        if ($this->result->getStatsFor($this->opponentSide)['name'] == 'Diomande')
+        {
+            return parent::paperChoice();
+        }
+
+
         if ($this->result->getNbRound() == 0) {
-            return parent::rockChoice();
+            return parent::scissorsChoice();
         }
         if ($this->result->getLastScoreFor($this->mySide)<=$this->result->getLastScoreFor($this->opponentSide) )
         {
-                $this->result->getLastChoiceFor($this->mySide);
+                if ($this->result->getLastChoiceFor($this->opponentSide) == 'rock' )
+                {
+                    return parent::scissorsChoice();
+                }
+               return $this->result->getLastChoiceFor($this->mySide);
         }
         return $this->result->getLastChoiceFor($this->opponentSide);
     }
