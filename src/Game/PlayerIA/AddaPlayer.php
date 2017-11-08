@@ -25,7 +25,7 @@ class AddaPlayer extends Player
         // How to get the opponent Last Score  ?    $this->result->getLastScoreFor($this->opponentSide) -- if 0 (first round)
         // -------------------------------------    -----------------------------------------------------
         // How to get all the Choices          ?    $this->result->getChoicesFor($this->mySide)
-        // How to get the opponent Last Choice ?    $this->result->getChoicesFor($this->opponentSide)
+        // How to get the opponent Last Choice ?    $this->result->$choice;
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Score            ?    $this->result->getLastScoreFor($this->mySide)
         // How to get the opponent Last Score  ?    $this->result->getLastScoreFor($this->opponentSide)
@@ -41,8 +41,13 @@ class AddaPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-        $choice = parent::scissorsChoice();
-
-        return $choice;
+        if ($this->result->getNbRound() == 0) {
+            return parent::rockChoice();
+        }
+        if ($this->result->getLastScoreFor($this->mySide)<=$this->result->getLastScoreFor($this->opponentSide) )
+        {
+                $this->result->getLastChoiceFor($this->mySide);
+        }
+        return $this->result->getLastChoiceFor($this->opponentSide);
     }
 };
