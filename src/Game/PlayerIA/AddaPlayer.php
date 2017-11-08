@@ -51,20 +51,17 @@ class AddaPlayer extends Player
                 return parent::scissorsChoice();
             return parent::rockChoice();
         }
-        if ($opponnent == 'Diomande')
-        {
-            return parent::paperChoice();
-        }
+
 
 
         if ($this->result->getNbRound() == 0) {
-            return parent::scissorsChoice();
+            return parent::rockChoice();
         }
         if ($this->result->getLastScoreFor($this->mySide)>$this->result->getLastScoreFor($this->opponentSide) )
         {
                 if ($this->result->getLastChoiceFor($this->opponentSide) == 'rock' )
                 {
-                    return parent::scissorsChoice();
+                    return parent::paperChoice();
                 }
                return $this->result->getLastChoiceFor($this->mySide);
         }
