@@ -45,11 +45,12 @@ class AddaPlayer extends Player
 
         if ($this->result->getStatsFor($this->opponentSide)['name'] == 'Garnaoui')
         {
-            return parent::paperChoice();
+                return parent::scissorsChoice();
+
         }
         if ($this->result->getStatsFor($this->opponentSide)['name'] == 'Diomande')
         {
-            return parent::paperChoice();
+            return parent::scissorsChoice();
         }
 
 
